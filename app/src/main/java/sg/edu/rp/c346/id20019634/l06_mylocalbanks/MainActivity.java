@@ -11,11 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageButton ibtnDBS, ibtnOCBC, ibtnUOB;
+    TextView tvDBS, tvOCBC, tvUOB;
 
     String wordClicked = "";
 
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         ibtnDBS = findViewById(R.id.imageButtonDBS);
         ibtnOCBC = findViewById(R.id.imageButtonOCBC);
         ibtnUOB = findViewById(R.id.imageButtonUOB);
+
+        tvDBS = findViewById(R.id.textViewDBS);
+        tvOCBC = findViewById(R.id.textViewOCBC);
+        tvUOB = findViewById(R.id.textViewUOB);
 
         registerForContextMenu(ibtnDBS);
         registerForContextMenu(ibtnOCBC);
@@ -115,4 +121,39 @@ public class MainActivity extends AppCompatActivity {
         return super.onContextItemSelected(item); //pass menu item to the superclass implementation
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.languages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.EnglishSelection) {
+            tvDBS.setText("DBS BANK");
+            tvOCBC.setText("OCBC BANK");
+            tvUOB.setText("UOB BANK");
+            return true;
+
+        } else if (id == R.id.ChineseSelection) {
+            tvDBS.setText("星展银行");
+            tvOCBC.setText("华侨银行");
+            tvUOB.setText("大华银行");
+            return true;
+
+        } else {
+            tvDBS.setText("Error translation");
+            tvOCBC.setText("Error translation");
+            tvUOB.setText("Error translation");
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

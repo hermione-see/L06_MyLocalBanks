@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">L06_MyLocalBanks</string>
     <string name="my_local_bank_accounts">My Local Bank Accounts</string>
+    <string name="dbs_bank">DBS BANK</string>
+    <string name="ocbc_bank">OCBC BANK</string>
+    <string name="uob_bank">UOB BANK</string>
 </resources>

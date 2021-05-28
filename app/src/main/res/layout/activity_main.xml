@@ -7,7 +7,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginTop="30dp"
     android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"
     android:orientation="vertical">
 
     <ScrollView
@@ -17,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:orientation="vertical" >
 
             <TextView
@@ -26,7 +26,16 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="30dp"
                 android:text="@string/my_local_bank_accounts"
+                android:textColor="#000000"
                 android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textViewDBS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/dbs_bank"
+                android:textSize="24sp"/>
 
             <ImageButton
                 android:id="@+id/imageButtonDBS"
@@ -37,6 +46,14 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/cover_image_jpg_760x400_q85_crop_upscale"/>
 
+            <TextView
+                android:id="@+id/textViewOCBC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ocbc_bank"
+                android:textSize="24sp" />
+
             <ImageButton
                 android:id="@+id/imageButtonOCBC"
                 android:layout_width="wrap_content"
@@ -46,6 +63,14 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ocbc_bannerlogo" />
 
+            <TextView
+                android:id="@+id/textViewUOB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/uob_bank"
+                android:textSize="24sp"/>
+
             <ImageButton
                 android:id="@+id/imageButtonUOB"
                 android:layout_width="373dp"
@@ -54,6 +79,7 @@
                 android:layout_marginBottom="20dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/images" />
+
         </LinearLayout>
     </ScrollView>
 
