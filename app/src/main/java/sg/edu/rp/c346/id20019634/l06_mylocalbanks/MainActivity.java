@@ -3,6 +3,7 @@ package sg.edu.rp.c346.id20019634.l06_mylocalbanks;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         menu.add(0,0,0,"Website");
         menu.add(0,1,1,"Contact the Bank");
+        menu.add(0,2,2,"Favourite");
 
         if (v == ibtnDBS) {
             wordClicked = "dbs";
@@ -80,43 +82,60 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;  //menu item successfully handled
 
-            }
-
-        } else if (wordClicked.equalsIgnoreCase("ocbc")) {
-            if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
+            } else if (item.getItemId() == 2) {
                 //code for action
-                Intent intentOCBC = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ocbc.com/group/gateway"));
-                startActivity(intentOCBC);
-                Toast.makeText(MainActivity.this, "Proceeding to Website...", Toast.LENGTH_SHORT).show();
+                tvDBS.setTextColor(Color.parseColor("red"));
 
                 return true; //menu item successfully handled
-            } else if (item.getItemId() == 1) { //check if the selected menu item ID is 1
-                //code for action
-                Intent intentOCBCCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + 18003633333L));
-                startActivity(intentOCBCCall);
-                Toast.makeText(MainActivity.this, "Proceeding to Phone...", Toast.LENGTH_SHORT).show();
 
-                return true;  //menu item successfully handled
+            } else if (wordClicked.equalsIgnoreCase("ocbc")) {
+                if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
+                    //code for action
+                    Intent intentOCBC = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ocbc.com/group/gateway"));
+                    startActivity(intentOCBC);
+                    Toast.makeText(MainActivity.this, "Proceeding to Website...", Toast.LENGTH_SHORT).show();
+
+                    return true; //menu item successfully handled
+
+                } else if (item.getItemId() == 1) { //check if the selected menu item ID is 1
+                    //code for action
+                    Intent intentOCBCCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + 18003633333L));
+                    startActivity(intentOCBCCall);
+                    Toast.makeText(MainActivity.this, "Proceeding to Phone...", Toast.LENGTH_SHORT).show();
+
+                    return true;  //menu item successfully handled
+
+                } else if (item.getItemId() == 2) {
+                    //code for action
+                    tvOCBC.setTextColor(Color.parseColor("red"));
+
+                    return true; //menu item successfully handled
+
+                } else {
+                    if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
+                        //code for action
+                        Intent intentUOB = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.uob.com.sg/"));
+                        startActivity(intentUOB);
+                        Toast.makeText(MainActivity.this, "Proceeding to Website...", Toast.LENGTH_SHORT).show();
+
+                        return true; //menu item successfully handled
+                    } else if (item.getItemId() == 1) { //check if the selected menu item ID is 1
+                        //code for action
+                        Intent intentUOBCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + 18002222121L));
+                        startActivity(intentUOBCall);
+                        Toast.makeText(MainActivity.this, "Proceeding to Phone...", Toast.LENGTH_SHORT).show();
+
+                        return true;  //menu item successfully handled
+
+                    } else if (item.getItemId() == 2) {
+                        //code for action
+                        tvUOB.setTextColor(Color.parseColor("red"));
+
+                        return true; //menu item successfully handled
+
+                    }
+                }
             }
-
-        } else {
-            if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
-                //code for action
-                Intent intentUOB = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.uob.com.sg/"));
-                startActivity(intentUOB);
-                Toast.makeText(MainActivity.this, "Proceeding to Website...", Toast.LENGTH_SHORT).show();
-
-                return true; //menu item successfully handled
-            } else if (item.getItemId() == 1) { //check if the selected menu item ID is 1
-                //code for action
-                Intent intentUOBCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + 18002222121L));
-                startActivity(intentUOBCall);
-                Toast.makeText(MainActivity.this, "Proceeding to Phone...", Toast.LENGTH_SHORT).show();
-
-                return true;  //menu item successfully handled
-
-            }
-
         }
         return super.onContextItemSelected(item); //pass menu item to the superclass implementation
 
